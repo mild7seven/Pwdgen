@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePass PWA</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body { font-family: sans-serif; background: #121212; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #1e1e1e; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 100%; max-width: 350px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: none; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #007bff; border: none; color: white; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        #result { margin-top: 20px; padding: 15px; background: #333; border-radius: 5px; word-break: break-all; font-family: monospace; border: 1px dashed #555; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>PassGen Pro</h2>
+        <input type="password" id="masterKey" placeholder="Master Key (Rahasia)">
+        <input type="text" id="service" placeholder="Contoh: Facebook, Gmail">
+        <button onclick="generatePass()">Generate Password</button>
+        <div id="result">Hasil akan muncul di sini...</div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
